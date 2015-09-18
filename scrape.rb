@@ -7,7 +7,10 @@ doc = Nokogiri::HTML(open(url))
 doc.css('article').each do |article|
   # puts article.at_css(".entry-title a").text
   header = article.at_css(".entry-title a").text
-  puts header.split(" ")[2,3].to_s.to_date
+  arr = header.split(" ")
+  arr.shift(2)
+  date = arr.join(" ").to_date
+  puts date
 end
 
 # doc.xpath('//article').each do |article|
