@@ -3,30 +3,40 @@ task fetch_workouts: :environment do
   require 'nokogiri'
   require 'open-uri'
 
-  url = "http://www.crossfitmagnus.com/category/workout/"
-  doc = Nokogiri::HTML(open(url))
+  page = 0
+  date = nil
+  last_workout = "2 Oct 2014".to_date
 
-  doc.css('article').each do |article|
-    # Get workout date
-    header = article.at_css(".entry-title a").text
-    arr = header.split(" ")
-    if arr[0] == "Workout"
-      arr.shift(2)
-    elsif arr[0] == "Open"
-      arr.shift(3)
+  loop do
+    page += 1
+    if page == 1
+      url = "http://www.crossfitmagnus.com/category/workout/"
     else
-      arr=["25", "June", "1986"]
+      url = "http://www.crossfitmagnus.com/category/workout/page/#{page}/"
     end
-    date = arr.join(" ").to_date
 
-    # Create new workout
-    if date.year != 1986
+    doc = Nokogiri::HTML(open(url))
+
+    doc.css('article').each do |article|
+      # Get workout date
+      header = article.at_css(".entry-title a").text
+      date_arr = header.split(" ")
+      if date_arr[0] == "Workout"
+        date_arr.shift(2)
+      elsif date_arr[0] == "Open"
+        date_arr.shift(3)
+      else
+        next
+      end
+
+      date = date_arr.join(" ").to_date
+
+      # Get body of workout
       body = article.at_css(".entry-content p").text
-      puts body
-      puts "=========================="
-      puts &nbsp
-      # Workout.create(date: date)
-    end
 
+      # Create new workout
+      Workout.create(date: date, workout: body)
+    end
+    break if date == last_workout
   end
 end
