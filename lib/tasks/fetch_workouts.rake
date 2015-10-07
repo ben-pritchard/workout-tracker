@@ -17,6 +17,9 @@ task fetch_workouts: :environment do
 
     doc = Nokogiri::HTML(open(url))
 
+    # Replace <br> with &nbsp so that a carriage return is picked up in workouts
+    doc.css('article br').each{ |br| br.replace "INSERT LINE BREAK HERE!" }
+
     doc.css('article').each do |article|
       # Get workout date
       header = article.at_css(".entry-title a").text
@@ -37,6 +40,6 @@ task fetch_workouts: :environment do
       # Create new workout
       Workout.create(date: date, workout: body)
     end
-    break if date == last_workout
+    break #if date == last_workout
   end
 end
