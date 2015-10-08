@@ -5,7 +5,10 @@
     <li>
       <h4>Date:</h4> <%= workout.date %>
       <h4>Workout:</h4> <%= simple_format(workout.body) %>
-      <h4>Notes:</h4> <%= workout.notes %>
+      <h4><%= link_to "Notes", edit_workout_path(workout), remote: true %></h4>
+      <div class="workout_notes_form">
+        <%= render "form", workout: workout %>
+      </div>
       <hr>
     </li>
   <% end %>
