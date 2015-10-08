@@ -4,7 +4,7 @@
   <% @workouts.each do |workout| %>
     <li>
       <h4>Date:</h4> <%= workout.date %>
-      <h4>Workout:</h4> <%= workout.workout %>
+      <h4>Workout:</h4> <%= simple_format(workout.workout) %>
       <h4>Notes:</h4> <%= workout.notes %>
       <hr>
     </li>

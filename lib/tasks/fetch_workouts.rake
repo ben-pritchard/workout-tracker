@@ -17,8 +17,8 @@ task fetch_workouts: :environment do
 
     doc = Nokogiri::HTML(open(url))
 
-    # Replace <br> with &nbsp so that a carriage return is picked up in workouts
-    doc.css('article br').each{ |br| br.replace "INSERT LINE BREAK HERE!" }
+    # Replace <br> with "\n" so that a carriage return is picked up when converted to plain text
+    # doc.css('article br').each{ |br| br.replace "\n" }
 
     doc.css('article').each do |article|
       # Get workout date
