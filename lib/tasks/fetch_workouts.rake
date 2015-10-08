@@ -38,8 +38,8 @@ task fetch_workouts: :environment do
       body = article.at_css(".entry-content p").text
 
       # Create new workout
-      Workout.create(date: date, workout: body)
+      Workout.create(date: date, body: body)
     end
-    break #if date == last_workout
+    break if date == last_workout
   end
 end

@@ -1,0 +1,5 @@
+Questions:
+
+- Why doesn't `Workout.all.where(body: " ")` work in the console? The workout on 10/5 comes through blank and I'm wondering if an if statement would fix multiple records with the same problem (if they exist)
+
+-
