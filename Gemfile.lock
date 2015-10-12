@@ -96,6 +96,8 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -196,6 +198,7 @@ DEPENDENCIES
   pg
   pry
   pry-nav
+  puma
   quiet_assets
   rails (= 4.2.1)
   rspec-rails

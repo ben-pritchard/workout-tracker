@@ -27,6 +27,7 @@ gem 'nokogiri'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootswatch-rails'
 gem 'jquery-turbolinks'
+gem 'puma'
 
 
 # Use ActiveModel has_secure_password
