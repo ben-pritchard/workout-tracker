@@ -1,0 +1,31 @@
+body {
+  background-image: url(http://www.crossfitmagnus.com/wp-content/themes/magnus/library/images/background-top.jpg);
+  background-repeat: no-repeat;
+  background-color: #231F20;
+  color: white;
+}
+
+hr {
+  border-top: 1px dotted #C1590F;
+}
+
+h4 {
+  color: #C1590F;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  background-image: linear-gradient(
+    #DF792E, #F06325 60%, #F05E27);
+}
+
+.handwriting {
+  background-color: yellow;
+  color: black;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}

@@ -8,7 +8,9 @@
   <%= favicon_link_tag href="http://www.crossfitmagnus.com/wp-content/themes/magnus/favicon.png" %>
 </head>
 <body>
+<%= render partial: "shared/navbar" %>
   <div class="container">
+    <%= render partial: "shared/header" %>
     <%= yield %>
   </div>
 

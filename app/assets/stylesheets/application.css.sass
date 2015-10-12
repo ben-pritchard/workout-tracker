@@ -14,10 +14,19 @@
  *= require_self
  */
 
+ // Example using 'Cerulean' bootswatch
 
- /*body {
-   background-image: url(http://www.crossfitmagnus.com/wp-content/themes/magnus/library/images/background-top.jpg);
-   background-repeat: no-repeat;
-   background-color: #231F20;
-   color: white;
- }*/
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets"
+
+// Import cerulean variables
+@import "bootswatch/slate/variables"
+
+// Then bootstrap itself
+@import "bootstrap"
+
+// And finally bootswatch style itself
+@import "bootswatch/slate/bootswatch"
+
+// Whatever application styles you have go last
+@import "styles"
