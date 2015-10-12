@@ -1,14 +1,12 @@
-<h1>Here are all the workouts posted on Crossfit Magnus' website:</h1>
+<h1>Here are all the workouts posted on the Crossfit Magnus website:</h1>
 
 <ul>
   <% @workouts.each do |workout| %>
     <li>
       <h4>Date:</h4> <%= workout.date %>
       <h4>Workout:</h4> <%= simple_format(workout.body) %>
-      <h4><%= link_to "Notes", edit_workout_path(workout), remote: true %></h4>
-      <div class="workout_notes_form">
-        <%= render "form", workout: workout %>
-      </div>
+      <h4>Notes: <%= link_to "Edit", edit_workout_path(workout), id: "edit_notes_link", remote: true %></h4>
+      <%= render 'notes', workout: workout %>
       <hr>
     </li>
   <% end %>

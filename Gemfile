@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'nokogiri'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootswatch-rails'
+gem 'jquery-turbolinks'
 
 
 # Use ActiveModel has_secure_password

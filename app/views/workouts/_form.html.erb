@@ -1,8 +1,10 @@
-<div id="edit_comment_form">
-  <%= form_for workout, remote: true do |f| %>
+<div id="edit_notes_form">
+  <%= render "layouts/errors", object: @workout %>
+
+  <%= form_for @workout, remote: true do |f| %>
     <%= f.text_area :notes, rows: 5, cols: 50 %>
     <br>
-    <%= f.submit "Post", class: "btn btn-success" %>
-    <%= link_to "Nevermind", :back, class: "btn btn-primary" %>
+    <%= f.submit "Update", class: "btn btn-success" %>
+    <%= link_to "Nevermind", :back, class: "btn btn-warning" %>
   <% end %>
 </div>
