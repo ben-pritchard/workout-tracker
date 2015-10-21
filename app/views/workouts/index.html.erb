@@ -6,7 +6,9 @@
       <h4>Date:</h4> <%= workout.date %>
       <h4>Workout:</h4> <%= simple_format(workout.body) %>
       <h4>Notes: <%= link_to "Edit", edit_workout_path(workout), class: "btn btn-sm btn-default", id: "edit_notes_link", remote: true %></h4>
-      <%= render 'notes', workout: workout %>
+      <div class="black">
+        <%= render 'notes', workout: workout %>
+      </div>
       <hr>
     </li>
   <% end %>
